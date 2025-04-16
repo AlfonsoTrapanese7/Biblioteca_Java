@@ -1,3 +1,5 @@
+package bean;
+
 public class Genere {
     private int idGenere;
     private String nome;

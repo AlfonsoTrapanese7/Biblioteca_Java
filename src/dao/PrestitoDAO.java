@@ -3,6 +3,8 @@ package dao;
 import java.sql.SQLException;
 import java.util.List;
 
+import bean.Prestito;
+
 
 public class PrestitoDAO {
     private final String url = "jdbc:mysql://localhost:3306/cinema"; // Sostituisci con l'URL del tuo database
