@@ -10,6 +10,13 @@ public class Genere {
     public Genere() {
     }
 
+    public Genere(int idGenere, String nome, String sottogenere, double dewey) {
+        this.idGenere=idGenere;
+        this.nome=nome;
+        this.sottogenere=sottogenere;
+        this.dewey=dewey;
+    }
+
     // Getters e Setters
     public int getIdGenere() {
         return idGenere;
