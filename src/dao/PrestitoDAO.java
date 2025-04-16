@@ -43,7 +43,7 @@ public class PrestitoDAO {
 
     public Prestito selectPrestitoById(int id) throws SQLException {
         
-        String sql = "SELECT * FROM prestito WHERE id_prestito";
+        String sql = "SELECT * FROM prestito WHERE id_prestito = ?";
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
              PreparedStatement stmt = conn.prepareStatement(sql)) {

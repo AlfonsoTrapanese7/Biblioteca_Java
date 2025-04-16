@@ -20,9 +20,9 @@ public class PrestitoTest {
         } catch (Exception e) {
             System.out.println("Errore durante la visualizzazione del record con id 1");
         }
-        System.out.println("Inserimento libro");
+        System.out.println("Inserimento Prestito ");
         Prestito mioPrestito = new Prestito(300, 20, Date.valueOf(LocalDate.of(2025, 11, 10)), Date.valueOf(LocalDate.of(2025, 11, 25)), "restituito", 10, 1, "La pagina 40 è stata danneggiata");
-        System.out.println("Libro inserito correttamente");
+        System.out.println("Prestito inserito correttamente");
         try {
             mioPrestitoDAO.insert(mioPrestito);
         } catch (Exception e) {
