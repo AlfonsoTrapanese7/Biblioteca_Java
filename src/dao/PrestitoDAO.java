@@ -14,7 +14,7 @@ import bean.Prestito;
 
 
 public class PrestitoDAO {
-    private final String url = "jdbc:mysql://localhost:3306/cinema"; // Sostituisci con l'URL del tuo database
+    private final String url = "jdbc:mysql://localhost:3306/Libreria"; // Sostituisci con l'URL del tuo database
     private final String user = "root"; // Sostituisci con il tuo username
     private final String password = ""; // Sostituisci con la tua password
 
@@ -69,7 +69,7 @@ public class PrestitoDAO {
     }
 
     public void delete(int id) throws SQLException {
-        //il punto interrogativo sta a significare che il valore di id_film cambia in base a cio' che passo nel metodo
+        //il punto interrogativo sta a significare che il valore di id_prestito cambia in base a cio' che passo nel metodo
         String sql = "DELETE FROM prestito WHERE id_prestito = ?"; 
     
         try (Connection conn = DriverManager.getConnection(url, user, password);
@@ -107,7 +107,7 @@ public class PrestitoDAO {
             //sto dicendo che il valore del primo punto interrogativo va sostituito con id dell'input del metodo
             stmt.setString(1, nuoveNote);
             stmt.setInt(2, id);
-            //update film set titolo = nuovoTitolo where id_film = id
+            //update film set note = nuoveNote where id_prestito = id
 
             stmt.executeUpdate(); //si chiama excecuteUpdate e non executeDelete perchè per il database la cancellazione, l'inserimento e l'aggiornamento sono operazioni di update
         } 
