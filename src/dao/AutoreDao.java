@@ -12,7 +12,7 @@ import java.util.Date;
 
 import bean.Autore;
 
-public class AutoreDao {
+public class AutoreDAO {
         //imposto i parametri di connessione
     private final String url = "jdbc:mysql://localhost:3306/Libreria"; // Sostituisci con l'URL del tuo database
     private final String user = "root"; // Sostituisci con il tuo username
