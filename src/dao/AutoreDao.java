@@ -20,7 +20,7 @@ public class AutoreDAO {
 
     public List<Autore> selectAll() throws SQLException {
         List<Autore> autori = new ArrayList<>();
-        String sql = "SELECT * FROM film";
+        String sql = "SELECT * FROM autore";
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
              Statement stmt = conn.createStatement();
@@ -80,7 +80,7 @@ public class AutoreDAO {
     }
 
     public void update(Autore autore) throws SQLException {
-        String sql = "UPDATE film SET nome=?,cognome=?,paese_nascita=?,data_nascita=?,anno_decesso=? WHERE id_autore=?";
+        String sql = "UPDATE autore SET nome=?,cognome=?,paese_nascita=?,data_nascita=?,anno_decesso=? WHERE id_autore=?";
         try (Connection conn = DriverManager.getConnection(url, user, password);
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -96,7 +96,7 @@ public class AutoreDAO {
     }
 
     public void updateNome(String nuovoNome, int id) throws SQLException {
-        String sql = "update atore set nome = ? where id_autore = ?";
+        String sql = "update autore set nome = ? where id_autore = ?";
         try (Connection conn = DriverManager.getConnection(url, user, password);
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -108,7 +108,7 @@ public class AutoreDAO {
     }
 
     public void updateCognome(String nuovoCognome, int id) throws SQLException {
-        String sql = "update atore set cognome = ? where id_autore = ?";
+        String sql = "update autore set cognome = ? where id_autore = ?";
         try (Connection conn = DriverManager.getConnection(url, user, password);
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
 
