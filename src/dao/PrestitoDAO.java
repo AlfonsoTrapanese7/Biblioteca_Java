@@ -38,7 +38,7 @@ public class PrestitoDAO {
                     
                 }
             }
-        return null;
+        return prestiti;
     }
 
     public Prestito selectPrestitoById(int id) throws SQLException {
