@@ -12,7 +12,7 @@ import java.util.List;
 
 import bean.Libro;
 
-public class LibroDao {
+public class LibroDAO {
     private final String url = "jdbc:mysql://localhost:3306/libreria";
     private final String user = "root";
     private final String password = "";
