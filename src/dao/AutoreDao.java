@@ -115,7 +115,7 @@ public class AutoreDAO {
     }
 
     public void insert(Autore autore) throws SQLException {
-        String sql = "INSERT INTO autore(nome,cognome,paese_nascita,data_nascita,anno_decesso) VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO autore(nome,cognome,paese_nascita,data_nascita,anno_decesso) VALUES (?,?,?,?,?)";
         try (Connection conn = DriverManager.getConnection(url, user, password);
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -124,7 +124,6 @@ public class AutoreDAO {
             stmt.setString(3, autore.getPaeseNascita());
             stmt.setDate(4, autore.getDataNascita());
             stmt.setDate(5, autore.getAnnoDecesso());
-            stmt.setInt(6, autore.getIdAutore());
 
             stmt.executeUpdate();
         }
