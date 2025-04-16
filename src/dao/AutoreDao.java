@@ -80,7 +80,7 @@ public class AutoreDao {
     }
 
     public void update(Autore autore) throws SQLException {
-        String sql = "UPDATE film SET titolo=?,genere=?,casa_produttrice=?,regia=?,voto=?,lingua=?,attori_principali=?,paese_di_produzione=? WHERE id_film=?";
+        String sql = "UPDATE film SET nome=?,cognome=?,paese_nascita=?,data_nascita=?,anno_decesso=? WHERE id_autore=?";
         try (Connection conn = DriverManager.getConnection(url, user, password);
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -90,6 +90,46 @@ public class AutoreDao {
             stmt.setString(3, autore.getPaeseNascita());
             stmt.setDate(4, (java.sql.Date) autore.getDataNascita());
             stmt.setDate(5, (java.sql.Date) autore.getAnnoDecesso());
+            stmt.setInt(6, autore.getIdAutore());
+            stmt.executeUpdate();
+        }
+    }
+
+    public void updateNome(String nuovoNome, int id) throws SQLException {
+        String sql = "update atore set nome = ? where id_autore = ?";
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, nuovoNome);
+            stmt.setInt(2, id);
+
+            stmt.executeUpdate(); 
+        }
+    }
+
+    public void updateCognome(String nuovoCognome, int id) throws SQLException {
+        String sql = "update atore set cognome = ? where id_autore = ?";
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, nuovoCognome);
+            stmt.setInt(2, id);
+
+            stmt.executeUpdate();
+        }
+    }
+
+    public void insert(Autore autore) throws SQLException {
+        String sql = "INSERT INTO autore(nome,cognome,paese_nascita,data_nascita,anno_decesso) VALUES (?,?,?,?,?,?,?,?)";
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, autore.getNome());
+            stmt.setString(2, autore.getCognome());
+            stmt.setString(3, autore.getPaeseNascita());
+            stmt.setDate(4, (java.sql.Date) autore.getDataNascita());
+            stmt.setDate(5, (java.sql.Date) autore.getAnnoDecesso());
+            stmt.setInt(6, autore.getIdAutore());
 
             stmt.executeUpdate();
         }
