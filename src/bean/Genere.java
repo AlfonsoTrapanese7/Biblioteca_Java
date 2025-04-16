@@ -10,6 +10,7 @@ public class Genere {
     public Genere() {
     }
 
+    //costruttore completo
     public Genere(int idGenere, String nome, String sottogenere, double dewey) {
         this.idGenere=idGenere;
         this.nome=nome;
@@ -49,7 +50,16 @@ public class Genere {
     public void setDewey(double dewey) {
         this.dewey = dewey;
     }
-
-
-} 
+    
+    @Override
+    public String toString() {
+        return "Genere{" +
+                "idGenere=" + idGenere +
+                ", nome='" + nome + '\'' +
+                ", sottogenere='" + sottogenere + '\'' +
+                ", dewey=" + dewey +
+                '}';
+    }
+    
+}
 
