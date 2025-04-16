@@ -32,10 +32,11 @@ public class LibroTest {
         System.out.println();
         System.out.println("Inserimento libro");
         Libro mioLibro = new Libro(100, "De vulgari eloquentia", 1, 3, Date.valueOf(LocalDate.of(1305, 4, 15)), "9788893663717", "Le lettere", 20.90, 164);
-        System.out.println("Libro inserito correttamente");
+       
         try
         {
-            mioLibroDAO.insert(mioLibro);    
+            mioLibroDAO.insert(mioLibro); 
+            System.out.println("Libro inserito correttamente");    
         }
         catch (Exception e)
         {
