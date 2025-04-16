@@ -14,7 +14,7 @@ import bean.Autore;
 
 public class AutoreDao {
         //imposto i parametri di connessione
-    private final String url = "jdbc:mysql://localhost:3306/cinema"; // Sostituisci con l'URL del tuo database
+    private final String url = "jdbc:mysql://localhost:3306/Libreria"; // Sostituisci con l'URL del tuo database
     private final String user = "root"; // Sostituisci con il tuo username
     private final String password = ""; // Sostituisci con la tua password
 
