@@ -13,6 +13,15 @@ public class Autore {
     public Autore() {
     }
 
+    public Autore(int idAutore, String nome, String cognome, String paeseNascita, Date dataNascita, Date annoDecesso) {
+        this.idAutore = idAutore;
+        this.nome = nome;
+        this.cognome = cognome;
+        this.paeseNascita = paeseNascita;
+        this.dataNascita = dataNascita;
+        this.annoDecesso = annoDecesso;
+    }
+
     // Getters e Setters
     public int getIdAutore() {
         return idAutore;
