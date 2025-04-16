@@ -76,5 +76,6 @@ public class Autore {
         return "Autore [idAutore=" + idAutore + ", nome=" + nome + ", cognome=" + cognome + ", paeseNascita="
                 + paeseNascita + ", dataNascita=" + dataNascita + ", annoDecesso=" + annoDecesso + "]";
     }
+
     
 }
