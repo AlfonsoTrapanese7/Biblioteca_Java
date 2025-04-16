@@ -21,9 +21,10 @@ public class AutoreTest {
         }
         System.out.println("Inserimento autore");
         Autore mioAutore = new Autore("Giovanni","Boccaccio","Italia", Date.valueOf(LocalDate.of(1313, 06, 16)), Date.valueOf(LocalDate.of(1375, 12, 21)));
-        System.out.println("Libro inserito correttamente");
+        
         try {
             mioAutoreDAO.insert(mioAutore);
+            System.out.println("Autore inserito correttamente");
         } catch (Exception e) {
             System.out.println("Errore durante l'inserimento");
         }

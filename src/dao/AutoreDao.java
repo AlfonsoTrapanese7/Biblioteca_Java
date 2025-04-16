@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Date;
+
 
 import bean.Autore;
 
@@ -20,7 +20,7 @@ public class AutoreDAO {
 
     public List<Autore> selectAll() throws SQLException {
         List<Autore> autori = new ArrayList<>();
-        String sql = "SELECT * FROM film";
+        String sql = "SELECT * FROM autore";
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
              Statement stmt = conn.createStatement();
@@ -80,7 +80,7 @@ public class AutoreDAO {
     }
 
     public void update(Autore autore) throws SQLException {
-        String sql = "UPDATE film SET nome=?,cognome=?,paese_nascita=?,data_nascita=?,anno_decesso=? WHERE id_autore=?";
+        String sql = "UPDATE autore SET nome=?,cognome=?,paese_nascita=?,data_nascita=?,anno_decesso=? WHERE id_autore=?";
         try (Connection conn = DriverManager.getConnection(url, user, password);
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -88,15 +88,15 @@ public class AutoreDAO {
             stmt.setString(1, autore.getNome());
             stmt.setString(2, autore.getCognome());
             stmt.setString(3, autore.getPaeseNascita());
-            stmt.setDate(4, (java.sql.Date) autore.getDataNascita());
-            stmt.setDate(5, (java.sql.Date) autore.getAnnoDecesso());
+            stmt.setDate(4,  autore.getDataNascita());
+            stmt.setDate(5,  autore.getAnnoDecesso());
             stmt.setInt(6, autore.getIdAutore());
             stmt.executeUpdate();
         }
     }
 
     public void updateNome(String nuovoNome, int id) throws SQLException {
-        String sql = "update atore set nome = ? where id_autore = ?";
+        String sql = "update autore set nome = ? where id_autore = ?";
         try (Connection conn = DriverManager.getConnection(url, user, password);
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -108,7 +108,7 @@ public class AutoreDAO {
     }
 
     public void updateCognome(String nuovoCognome, int id) throws SQLException {
-        String sql = "update atore set cognome = ? where id_autore = ?";
+        String sql = "update autore set cognome = ? where id_autore = ?";
         try (Connection conn = DriverManager.getConnection(url, user, password);
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -120,16 +120,16 @@ public class AutoreDAO {
     }
 
     public void insert(Autore autore) throws SQLException {
-        String sql = "INSERT INTO autore(nome,cognome,paese_nascita,data_nascita,anno_decesso) VALUES (?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO autore(nome,cognome,paese_nascita,data_nascita,anno_decesso) VALUES (?,?,?,?,?)";
         try (Connection conn = DriverManager.getConnection(url, user, password);
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, autore.getNome());
             stmt.setString(2, autore.getCognome());
             stmt.setString(3, autore.getPaeseNascita());
-            stmt.setDate(4, (java.sql.Date) autore.getDataNascita());
-            stmt.setDate(5, (java.sql.Date) autore.getAnnoDecesso());
-            stmt.setInt(6, autore.getIdAutore());
+            stmt.setDate(4,  autore.getDataNascita());
+            stmt.setDate(5,  autore.getAnnoDecesso());
+            
 
             stmt.executeUpdate();
         }
