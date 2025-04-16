@@ -1,38 +1,39 @@
 package bean;
 
-import java.time.LocalDate;
+import java.sql.Date;
+
 
 public class Prestito {
-    private int id_prestito;   
+    private int idPrestito;   
     private int fkIdLibro;
-    private LocalDate dataPrestito;
-    private LocalDate dataRestituzione;
+    private Date dataPrestito;
+    private Date dataRestituzione;
     private String stato; 
     private double penale;
-    private int estenzione;
+    private int estensione;
     private String note;
 
     public Prestito() {
     }
 
 
-    public Prestito(int id_prestito, int fkIdLibro, LocalDate dataPrestito, LocalDate dataRestituzione, String stato, double penale, int estenzione, String note) {
-        this.id_prestito = id_prestito;
+    public Prestito(int idPrestito, int fkIdLibro, Date dataPrestito, Date dataRestituzione, String stato, double penale, int estenzione, String note) {
+        this.idPrestito = idPrestito;
         this.fkIdLibro = fkIdLibro;
         this.dataPrestito = dataPrestito;
         this.dataRestituzione = dataRestituzione;
         this.stato = stato;
         this.penale = penale;
-        this.estenzione = estenzione;
+        this.estensione = estenzione;
         this.note = note;
     }
     
-    public int getId_prestito() {
-        return this.id_prestito;
+    public int getIdPrestito() {
+        return this.idPrestito;
     }
 
-    public void setId_prestito(int id_prestito) {
-        this.id_prestito = id_prestito;
+    public void setIdPrestito(int id_prestito) {
+        this.idPrestito = id_prestito;
     }
 
     public int getFkIdLibro() {
@@ -43,19 +44,19 @@ public class Prestito {
         this.fkIdLibro = fkIdLibro;
     }
 
-    public LocalDate getDataPrestito() {
+    public Date getDataPrestito() {
         return this.dataPrestito;
     }
 
-    public void setDataPrestito(LocalDate dataPrestito) {
+    public void setDataPrestito(Date dataPrestito) {
         this.dataPrestito = dataPrestito;
     }
 
-    public LocalDate getDataRestituzione() {
+    public Date getDataRestituzione() {
         return this.dataRestituzione;
     }
 
-    public void setDataRestituzione(LocalDate dataRestituzione) {
+    public void setDataRestituzione(Date dataRestituzione) {
         this.dataRestituzione = dataRestituzione;
     }
 
@@ -75,12 +76,12 @@ public class Prestito {
         this.penale = penale;
     }
 
-    public int getEstenzione() {
-        return this.estenzione;
+    public int getEstensione() {
+        return this.estensione;
     }
 
-    public void setEstenzione(int estenzione) {
-        this.estenzione = estenzione;
+    public void setEstensione(int estenzione) {
+        this.estensione = estenzione;
     }
 
     public String getNote() {
@@ -95,13 +96,13 @@ public class Prestito {
     @Override
     public String toString() {
         return "{" +
-            " id_prestito='" + getId_prestito() + "'" +
+            " id_prestito='" + getIdPrestito() + "'" +
             ", fkIdLibro='" + getFkIdLibro() + "'" +
             ", dataPrestito='" + getDataPrestito() + "'" +
             ", dataRestituzione='" + getDataRestituzione() + "'" +
             ", stato='" + getStato() + "'" +
             ", penale='" + getPenale() + "'" +
-            ", estenzione='" + getEstenzione() + "'" +
+            ", estenzione='" + getEstensione() + "'" +
             ", note='" + getNote() + "'" +
             "}";
     }
