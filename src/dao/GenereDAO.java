@@ -93,14 +93,14 @@ public class GenereDAO {
     }
 
     public void insert(Genere genere) throws SQLException {
-        String sql = "INSERT INTO genere(id_genere, nome, sottogenere, dewey) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO genere(nome, sottogenere, dewey) VALUES (?,?,?)";
         try (Connection conn = DriverManager.getConnection(url, user, password);
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setInt(1, genere.getIdGenere());
-            stmt.setString(2, genere.getNome());
-            stmt.setString(3, genere.getSottogenere());
-            stmt.setDouble(4, genere.getDewey());
+            
+            stmt.setString(1, genere.getNome());
+            stmt.setString(2, genere.getSottogenere());
+            stmt.setDouble(3, genere.getDewey());
 
             stmt.executeUpdate();
         }

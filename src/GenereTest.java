@@ -21,9 +21,10 @@ public class GenereTest {
 
         System.out.println("Inserimento genere");
         Genere mioGenere = new Genere(10,"narrativa", "horror",12.12 );
-        System.out.println("Genere inserito correttamente");
+        
         try {
             mioGenereDAO.insert(mioGenere);
+            System.out.println("Genere inserito correttamente");
         } catch (Exception e) {
             System.out.println("Errore durante l'inserimento");
         }
