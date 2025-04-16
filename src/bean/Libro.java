@@ -1,6 +1,6 @@
 package bean;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Libro {
     private int idLibro;
@@ -8,14 +8,14 @@ public class Libro {
     private int fkIdAutore;
     private int fkIdGenere;
     private Date annoUscita;
-    private char isbn;
+    private String isbn;
     private String casaEditrice;
     private double costoLibro;
     private int numeroPagine;
 
     public Libro() {}
 
-    public Libro(int idLibro, String titolo, int fkIdAutore, int fkIdGenere, Date annoUscita, char isbn, String casaEditrice, double costoLibro, int numeroPagine) {
+    public Libro(int idLibro, String titolo, int fkIdAutore, int fkIdGenere, Date annoUscita, String isbn, String casaEditrice, double costoLibro, int numeroPagine) {
         this.idLibro = idLibro;
         this.titolo = titolo;
         this.fkIdAutore = fkIdAutore;
@@ -67,11 +67,11 @@ public class Libro {
         this.annoUscita = annoUscita;
     }
 
-    public char getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(char isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 

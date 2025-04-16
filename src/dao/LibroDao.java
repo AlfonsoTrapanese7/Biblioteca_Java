@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +32,7 @@ public class LibroDAO {
                         rs.getInt("fk_id_autore"),
                         rs.getInt("fk_id_genere"),
                         rs.getDate("anno_uscita"),
-                        rs.getString("isbn").charAt(0), //Convertiamo il primo carattere in char
+                        rs.getString("isbn"),
                         rs.getString("casa_editrice"),
                         rs.getDouble("costo_libro"),
                         rs.getInt("numero_pagine")
@@ -62,7 +61,7 @@ public class LibroDAO {
                         rs.getInt("fk_id_autore"),
                         rs.getInt("fk_id_genere"),
                         rs.getDate("anno_uscita"),
-                        rs.getString("isbn").charAt(0),
+                        rs.getString("isbn"),
                         rs.getString("casa_editrice"),
                         rs.getDouble("costo_libro"),
                         rs.getInt("numero_pagine")
@@ -94,8 +93,8 @@ public class LibroDAO {
                 stmt.setString(1, libro.getTitolo());
                 stmt.setInt(2, libro.getFkIdAutore());
                 stmt.setInt(3, libro.getFkIdGenere());
-                stmt.setDate(4, new Date(libro.getAnnoUscita().getTime())); //Conversione da java.util.Date a java.sql.Date
-                stmt.setString(5, String.valueOf(libro.getIsbn())); //Converte da char a String
+                stmt.setDate(4, libro.getAnnoUscita());
+                stmt.setString(5, libro.getIsbn());
                 stmt.setString(6, libro.getCasaEditrice());
                 stmt.setDouble(7, libro.getCostoLibro());
                 stmt.setInt(8, libro.getNumeroPagine());
@@ -127,8 +126,8 @@ public class LibroDAO {
                 stmt.setString(1, libro.getTitolo());
                 stmt.setInt(2, libro.getFkIdAutore());
                 stmt.setInt(3, libro.getFkIdGenere());
-                stmt.setDate(4, new Date(libro.getAnnoUscita().getTime())); //Conversione da java.util.Date a java.sql.Date
-                stmt.setString(5, String.valueOf(libro.getIsbn())); //Converte da char a String
+                stmt.setDate(4, libro.getAnnoUscita());
+                stmt.setString(5, libro.getIsbn());
                 stmt.setString(6, libro.getCasaEditrice());
                 stmt.setDouble(7, libro.getCostoLibro());
                 stmt.setInt(8, libro.getNumeroPagine());
