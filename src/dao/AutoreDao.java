@@ -8,12 +8,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Date;
 
 import bean.Autore;
 
 public class AutoreDAO {
-        //imposto i parametri di connessione
+    // imposto i parametri di connessione
     private final String url = "jdbc:mysql://localhost:3306/Libreria"; // Sostituisci con l'URL del tuo database
     private final String user = "root"; // Sostituisci con il tuo username
     private final String password = ""; // Sostituisci con la tua password
@@ -23,8 +22,8 @@ public class AutoreDAO {
         String sql = "SELECT * FROM autore";
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(sql)) {
 
             while (rs.next()) {
                 autori.add(new Autore(
@@ -33,38 +32,35 @@ public class AutoreDAO {
                         rs.getString("cognome"),
                         rs.getString("paese_nascita"),
                         rs.getDate("data_nascita"),
-                        rs.getDate("anno_decesso")
-                ));
+                        rs.getDate("anno_decesso")));
             }
         }
 
         return autori;
     }
 
-
     public Autore selectAutoreById(int id) throws SQLException {
         String sql = "SELECT * FROM autore WHERE id_autore = ?";
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setInt(1, id); 
+            stmt.setInt(1, id);
 
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     return new Autore(
-                        rs.getInt("id_autore"),
-                        rs.getString("nome"),
-                        rs.getString("cognome"),
-                        rs.getString("paese_nascita"),
-                        rs.getDate("data_nascita"),
-                        rs.getDate("anno_decesso")
-                    );
+                            rs.getInt("id_autore"),
+                            rs.getString("nome"),
+                            rs.getString("cognome"),
+                            rs.getString("paese_nascita"),
+                            rs.getDate("data_nascita"),
+                            rs.getDate("anno_decesso"));
                 }
             }
         }
 
-        return null; 
+        return null;
     }
 
     public void delete(int id) throws SQLException {
@@ -84,12 +80,11 @@ public class AutoreDAO {
         try (Connection conn = DriverManager.getConnection(url, user, password);
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            
             stmt.setString(1, autore.getNome());
             stmt.setString(2, autore.getCognome());
             stmt.setString(3, autore.getPaeseNascita());
-            stmt.setDate(4, (java.sql.Date) autore.getDataNascita());
-            stmt.setDate(5, (java.sql.Date) autore.getAnnoDecesso());
+            stmt.setDate(4, autore.getDataNascita());
+            stmt.setDate(5, autore.getAnnoDecesso());
             stmt.setInt(6, autore.getIdAutore());
             stmt.executeUpdate();
         }
@@ -103,7 +98,7 @@ public class AutoreDAO {
             stmt.setString(1, nuovoNome);
             stmt.setInt(2, id);
 
-            stmt.executeUpdate(); 
+            stmt.executeUpdate();
         }
     }
 
@@ -127,8 +122,8 @@ public class AutoreDAO {
             stmt.setString(1, autore.getNome());
             stmt.setString(2, autore.getCognome());
             stmt.setString(3, autore.getPaeseNascita());
-            stmt.setDate(4, (java.sql.Date) autore.getDataNascita());
-            stmt.setDate(5, (java.sql.Date) autore.getAnnoDecesso());
+            stmt.setDate(4, autore.getDataNascita());
+            stmt.setDate(5, autore.getAnnoDecesso());
             stmt.setInt(6, autore.getIdAutore());
 
             stmt.executeUpdate();
