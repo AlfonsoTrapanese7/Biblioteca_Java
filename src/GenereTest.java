@@ -1,12 +1,33 @@
-import java.sql.Date;
-import java.time.LocalDate;
-
-import bean.Prestito;
-import dao.PrestitoDAO;
+import bean.Genere;
+import dao.GenereDAO;
 
 public class GenereTest {
     
+    public static void main(String[] args) {
+       GenereDAO mioGenereDAO = new GenereDAO();
+        System.out.println("Tabella SELECT * ");
+        try {
+            System.out.println(mioGenereDAO.selectAll());
+        } catch (Exception e) {
+            System.out.println("Errore durante la visualizzazione della tabella");
+        }
 
+        System.out.println("Record con id 1");
+        try {
+            System.out.println(mioGenereDAO.selectGenereById(1));
+        } catch (Exception e) {
+            System.out.println("Errore durante la visualizzazione del record con id 1");
+        }
 
-    
+        System.out.println("Inserimento genere");
+        Genere mioGenere = new Genere(10,"narrativa", "horror",12.12 );
+        System.out.println("Genere inserito correttamente");
+        try {
+            mioGenereDAO.insert(mioGenere);
+        } catch (Exception e) {
+            System.out.println("Errore durante l'inserimento");
+        }
+          
+    }
+
 }
