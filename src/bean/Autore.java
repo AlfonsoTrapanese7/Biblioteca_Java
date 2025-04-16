@@ -1,4 +1,5 @@
 package bean;
+
 import java.util.Date;
 
 public class Autore {
@@ -15,6 +16,14 @@ public class Autore {
 
     public Autore(int idAutore, String nome, String cognome, String paeseNascita, Date dataNascita, Date annoDecesso) {
         this.idAutore = idAutore;
+        this.nome = nome;
+        this.cognome = cognome;
+        this.paeseNascita = paeseNascita;
+        this.dataNascita = dataNascita;
+        this.annoDecesso = annoDecesso;
+    }
+
+    public Autore(String nome, String cognome, String paeseNascita, Date dataNascita, Date annoDecesso) {
         this.nome = nome;
         this.cognome = cognome;
         this.paeseNascita = paeseNascita;
@@ -77,5 +86,4 @@ public class Autore {
                 + paeseNascita + ", dataNascita=" + dataNascita + ", annoDecesso=" + annoDecesso + "]";
     }
 
-    
 }
